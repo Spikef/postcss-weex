@@ -1,0 +1,13 @@
+.page {
+    padding: 20px;
+}
+.button {
+    margin: 10px 18px;
+    border: 1px #108ee9 dashed;
+    background: #108ee9;
+    border-radius: 10px;
+}
+.text {
+    font-size: 18pt;
+    flex-direction: row;
+}
