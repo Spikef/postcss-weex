@@ -1,5 +1,5 @@
 {
-  "name": "@u51/postcss-weex",
+  "name": "postcss-weex",
   "version": "1.0.0",
   "description": "postcss plugin for better weex style writting.",
   "main": "src/index.js",
