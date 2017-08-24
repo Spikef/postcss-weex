@@ -15,14 +15,54 @@ $ npm install postcss-weex
 
 ## 使用
 
+只需要在`webpack`的配置文件中增加相关配置即可。
+
+### 对于web
+
 ```javascript
 // for webpack2
+
+var prefixer = require('autoprefixer');
+var weexCSS = require('postcss-weex');
+
+{
+    test: /\.vue(\?[^?]+)?$/,
+    loader: `vue-loader`,
+    options: {
+        /**
+         * important! should use postTransformNode to add $processStyle for
+         * inline style normalization.
+         */
+        compilerModules: [
+            {
+                postTransformNode: el => {
+                    el.staticStyle = `$processStyle(${el.staticStyle})`;
+                    el.styleBinding = `$processStyle(${el.styleBinding})`;
+                }
+            }
+        ],
+        postcss: [
+            weexCSS({env: 'web'}),
+            prefixer({ browsers: ['last 20 versions'] })
+        ]
+    }
+}
+```
+
+### 对于weex
+
+```javascript
+// for webpack2
+
+var weexCSS = require('postcss-weex');
 
 {
     test: /\.vue(\?[^?]+)?$/,
     loader: `weex-loader`,
     options: {
-        postcss: [require('postcss-weex')({env: 'weex'})]   // env: weex or web/vue whatever
+        postcss: [
+            weexCSS({env: 'weex'})
+        ]
     }
 }
 ```
