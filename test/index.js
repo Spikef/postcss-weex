@@ -10,10 +10,10 @@ var resolve = function() {
 };
 
 fs.readFile(resolve('source.css'), function(err, css) {
-    postcss([weexcss])
+    postcss([weexcss({env: 'weex'})])
         .process(css, { from: resolve('source.css'), to: resolve('target.css') })
         .then(function(result) {
-            fs.writeFile(resolve('target.css'), result.css);
-            if ( result.map ) fs.writeFile(resolve('target.css.map'), result.map);
+            fs.writeFileSync(resolve('target.css'), result.css);
+            if ( result.map ) fs.writeFileSync(resolve('target.css.map'), result.map);
         });
 });
