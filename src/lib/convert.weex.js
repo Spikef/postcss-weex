@@ -7,6 +7,8 @@ module.exports = function(opts) {
     return function(decl) {
         // convert absolute length unit to wx
         decl.value = decl.value.replace(absLenUnit, '$1wx');
+        // remove !important since weex not support
+        decl.important = false;
 
         var props;
 

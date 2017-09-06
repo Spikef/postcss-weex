@@ -22,7 +22,7 @@ body {
     margin: 0;
     height: 0px;
     line-height: 0pt;
-    width: 40px;
+    width: 40px !important;
     -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.12);
     /* decimal */
     padding: 24.5px 24px 0;
