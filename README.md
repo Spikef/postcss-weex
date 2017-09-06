@@ -89,6 +89,8 @@ var weexCSS = require('postcss-weex');
 
 在weex中，有一个文档并未提及的单位`wx`，当使用这个单位时，尺寸不会进行缩放。`postcss-weex`支持使用`pt`单位(可使用options。absLenUnit来设置，默认使用`pt`而非`wx`主要是为了在`ide`中不会有错误提示)，在weex中会自动转为`wx`，在H5中自动转为`px`。
 
+注意：1pt按照2px换算。
+
 ### important
 
 在weex中，设置`!important`会使样式失效，但是因为`weex-vue-render`样式优先级的问题，有些情况下必需使用`!important`才能解决问题(如设置文本margin)，因此会对`!important`作特殊处理，在`weex`中删除掉`!important`。

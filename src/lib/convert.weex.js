@@ -22,6 +22,11 @@ module.exports = function(opts) {
                         prop: prop + '-color',
                         value: decl.value
                     });
+                } else if (utils.isLinearGradient(decl.value)) {
+                    decl.replaceWith({
+                        prop: prop + '-image',
+                        value: decl.value
+                    });
                 }
 
                 break;

@@ -7,7 +7,9 @@ var defaultOptions = {
     absLenUnit: 'pt',       // absolute length unit
     baseDpr: 2,             // base device pixel ratio (default: 2) !! Not used yet
     remUnit: 75,            // rem unit value (default: 75)
-    remPrecision: 6         // rem value precision (default: 6)
+    remPrecision: 6,        // rem value precision (default: 6)
+    checkStyle: true,       // check the styles allowed in weex
+    checkLevel: 'warn'      // warn or error
 };
 
 module.exports = postcss.plugin('postcss-weex', function(opts) {

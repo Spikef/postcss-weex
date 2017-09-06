@@ -4,3 +4,4 @@ exports.isBorderStyle = require('./is-border-style');
 exports.isFontStyle = require('./is-font-style');
 exports.isFontWeight = require('./is-font-weight');
 exports.isFontSize = require('./is-font-size');
+exports.isLinearGradient = require('./is-linear-gradient');
