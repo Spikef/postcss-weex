@@ -67,6 +67,17 @@ var weexCSS = require('postcss-weex');
 }
 ```
 
+### 选项
+
+支持以下选项：
+
++ **env**: 编译环境，`weex`或者`vue`，默认为`weex`；
++ **relLenUnit**: 相对长度单位，默认为`px`；
++ **absLenUnit**: 绝对长度单位，默认为`pt`；
++ **baseDpr**: 使用绝对长度单位时的换算基数，默认为`2`，即设计稿宽度为750时，1pt最终为1px；
++ **remUnit**: 使用相对长度单位时的换算基数，默认为`75`，即设计稿宽度为750时，1px最终为(1 * 2 / 75)rem；
++ **remPrecision**: 转rem时保留的小数位数。
+
 ## 功效
 
 ### 样式简写
@@ -87,9 +98,7 @@ var weexCSS = require('postcss-weex');
 
 ### 绝对单位
 
-在weex中，有一个文档并未提及的单位`wx`，当使用这个单位时，尺寸不会进行缩放。`postcss-weex`支持使用`pt`单位(可使用options。absLenUnit来设置，默认使用`pt`而非`wx`主要是为了在`ide`中不会有错误提示)，在weex中会自动转为`wx`，在H5中自动转为`px`。
-
-注意：1pt按照2px换算。
+在weex中，有一个文档并未提及的单位`wx`，当使用这个单位时，尺寸不会进行缩放。`postcss-weex`支持使用`pt`单位(可使用options.absLenUnit来设置，默认使用`pt`而非`wx`主要是为了在`ide`中不会有错误提示)，在weex中会自动转为`wx`，在H5中自动转为`px`。
 
 ### important
 

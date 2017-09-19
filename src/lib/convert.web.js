@@ -10,7 +10,7 @@ module.exports = function(opts) {
 
         // convert absolute length unit to px
         decl.value = decl.value.replace(absLenUnit, function($0, $1) {
-            return $1 == 0 ? $1 : ($1 * 2) + 'px';
+            return $1 == 0 ? $1 : ($1 * 2 / opts.baseDpr) + 'px';
         });
     }
 };

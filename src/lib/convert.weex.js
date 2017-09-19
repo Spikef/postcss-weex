@@ -6,7 +6,9 @@ module.exports = function(opts) {
 
     return function(decl) {
         // convert absolute length unit to wx
-        decl.value = decl.value.replace(absLenUnit, '$1wx');
+        decl.value = decl.value.replace(absLenUnit, function($0, $1) {
+            return $1 == 0 ? $1 : ($1 / opts.baseDpr) + 'wx';
+        });
         // remove !important since weex not support
         decl.important = false;
 

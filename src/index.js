@@ -5,7 +5,7 @@ var defaultOptions = {
     env: 'weex',            // weex or vue/web whatever
     relLenUnit: 'px',       // relative length unit
     absLenUnit: 'pt',       // absolute length unit
-    baseDpr: 2,             // base device pixel ratio (default: 2) !! Not used yet
+    baseDpr: 2,             // base device pixel ratio (default: 2)
     remUnit: 75,            // rem unit value (default: 75)
     remPrecision: 6,        // rem value precision (default: 6)
     checkStyle: true,       // check the styles allowed in weex
