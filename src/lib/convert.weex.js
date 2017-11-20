@@ -3,8 +3,14 @@ var utils = require('../utils');
 
 module.exports = function(opts) {
     var absLenUnit = new RegExp('\\b(\\d+(\\.\\d+)?)' + opts.absLenUnit + '\\b', 'g');
+    var relLenUnit = new RegExp('\\b(\\d+(\\.\\d+)?)' + opts.relLenUnit + '\\b', 'g');
 
     return function(decl) {
+        // convert relative length based 75px
+        decl.value = decl.value.replace(relLenUnit, function($0, $1) {
+            return $1 == 0 ? $1 : ($1 * 75 / opts.remUnit) + 'px';
+        });
+
         // convert absolute length unit to wx
         decl.value = decl.value.replace(absLenUnit, function($0, $1) {
             return $1 == 0 ? $1 : ($1 / opts.baseDpr) + 'wx';

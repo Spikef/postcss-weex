@@ -1,6 +1,6 @@
 {
   "name": "postcss-weex",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "postcss plugin for better weex style writting.",
   "main": "src/index.js",
   "keywords": [
