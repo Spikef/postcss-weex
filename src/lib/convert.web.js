@@ -5,6 +5,7 @@ module.exports = function(opts) {
     return function(decl) {
         // convert relative length unit to rem
         decl.value = decl.value.replace(relLenUnit, function($0, $1) {
+            if (+$1 < opt.minPixelValue) return $0;
             return calcValue($1, opts.remUnit, opts.remPrecision);
         });
 
