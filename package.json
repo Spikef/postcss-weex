@@ -10,6 +10,9 @@
   "scripts": {
     "test": "node ./test"
   },
+  "files": [
+    "src"
+  ],
   "author": "Spikef",
   "license": "MIT",
   "dependencies": {
