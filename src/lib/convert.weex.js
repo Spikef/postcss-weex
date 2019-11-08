@@ -54,17 +54,17 @@ module.exports = function(opts) {
 
                 break;
             case 'border-radius':
-                if (utils.isLength(decl.value)) {
-                    props = createProps(prop, 1);
-                    props.forEach(function(prop) {
-                        decl.cloneBefore({
-                            prop:  prop,
-                            value: decl.value
-                        });
-                    });
+                copyValues(values);
 
-                    decl.remove();
-                }
+                props = createProps(prop, 1);
+                props.forEach(function(prop, i) {
+                    decl.cloneBefore({
+                        prop:  prop,
+                        value: values[i]
+                    });
+                });
+
+                decl.remove();
 
                 break;
             case 'border':
